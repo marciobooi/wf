@@ -15,8 +15,8 @@ $string="hello Marcio";
 
 $array=["marcio", "oliveira"];
 
-$doubleDimenssionArray=[["marcio", 15, true, null]];
+$doubleDimenssionArray=[["marcio", 40, portugal], ["yurii", 30, russian,] ];
 
-$associativeArray=["Marcio"=>35, "Marco"=>37, "Joe"=>43];
+$associativeArray=['panama' => [456, 656664564], "Marco"=>37, "Joe"=>43];
 
 $null=null;
