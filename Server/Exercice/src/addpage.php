@@ -18,10 +18,35 @@ function generateToken() : string {
     return openssl_encrypt($requestId, $cipher, gethostname(), OPENSSL_ZERO_PADDING, $iv, $tag);
 }
 
+function tokenKeepAlive() {
+    $current = new DateTime();
+    $alive = [];
+    foreach ($_SESSION['carf_tokens'] as $uuid => $infos) {
+        if ($infos['valid_period'] > $current) {
+            $alive{$uuid} = $_SESSION['carf_tokens'][$uuid];
+        }
+    }
+    $_SESSION['carf_tokens'] = $alive;
+}
 
 if ($_SERVER["REQUEST_METHOD"]==="GET") {
     $token = generateToken();
+    $tokenLimit = 120;
 }
+
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+
+
+
+
+
+
+
+
 
 ?>
 
@@ -73,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"]==="GET") {
     <div class="form-group cc">
         <button class="btn btn-default" type="submit">Submit</button>
     </div>
+    <p><?php echo $token; ?></p>
 </form>
 
 </body>
