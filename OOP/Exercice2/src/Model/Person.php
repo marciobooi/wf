@@ -1,6 +1,10 @@
 <?php
 namespace Model;
 
+
+require_once __DIR__ . '\Role.php';
+
+
 class Person
 {
     private $id;
