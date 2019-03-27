@@ -1,0 +1,25 @@
+{
+    "name": "marcio/numerical",
+    "description": "exo4",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "marcio1978",
+            "email": "78marcio@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/security": "^4.2@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "Model\\": "Model/",
+            "Exception\\": "Exception/"
+        }
+    }
+
+
+
+}
